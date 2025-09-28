@@ -5,66 +5,321 @@
     <title>California Housing Pricing - Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+                /* ----------------------------- */
+        /* Global Styles */
+        /* ----------------------------- */
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', Arial, sans-serif;
+            background: linear-gradient(135deg, #e0f7fa, #f1f8e9);
+            color: #333;
             margin: 0;
             padding: 0;
-            background: #f5f6fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
+
+        /* ----------------------------- */
+        /* Header Section */
+        /* ----------------------------- */
+
         header {
-            background: #2d98da;
-            color: #fff;
-            padding: 1.5rem 2rem;
+            background: linear-gradient(120deg, #00796b, #26a69a);
+            color: white;
             text-align: center;
+            padding: 2rem 1rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
         }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 1rem;
+            margin-top: 0.5rem;
+            opacity: 0.9;
+        }
+
+        /* ----------------------------- */
+        /* Main Content */
+        /* ----------------------------- */
+
         main {
-            max-width: 800px;
-            margin: 2rem auto;
-            background: #fff;
+            flex: 1;
             padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            max-width: 700px;
+            margin: 2rem auto;
+            background: #ffffffcc;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in-out;
         }
-        h1 {
-            margin-top: 0;
+
+        main h2 {
+            color: #00796b;
+            text-align: center;
+            margin-bottom: 0.5rem;
         }
-        .cta {
-            display: inline-block;
-            margin-top: 1.5rem;
-            padding: 0.75rem 1.5rem;
-            background: #3867d6;
-            color: #fff;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.2s;
+
+        main p {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #555;
+            line-height: 1.6;
         }
-        .cta:hover {
-            background: #273c75;
+
+        /* ----------------------------- */
+        /* Form Styles */
+        /* ----------------------------- */
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 0 1rem;
         }
+
+        label {
+            font-weight: 600;
+            color: #004d40;
+        }
+
+        input[type="number"] {
+            padding: 0.6rem 0.8rem;
+            border: 1.5px solid #b2dfdb;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #00796b;
+            box-shadow: 0 0 6px rgba(0, 121, 107, 0.3);
+        }
+
+        /* Button Styling */
+        button {
+            background: #00796b;
+            color: white;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: #004d40;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 77, 64, 0.3);
+        }
+
+        /* ----------------------------- */
+        /* Prediction Result */
+        /* ----------------------------- */
+
+        h3 {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 1.4rem;
+            color: #2e7d32;
+            background: #e8f5e9;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(46, 125, 50, 0.1);
+        }
+
+        /* ----------------------------- */
+        /* Footer */
+        /* ----------------------------- */
+
         footer {
+            background: #004d40;
+            color: white;
             text-align: center;
             padding: 1rem;
-            color: #888;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
         }
+
+        /* ----------------------------- */
+        /* Animation Effects */
+        /* ----------------------------- */
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ----------------------------- */
+        /* Responsive Design */
+        /* ----------------------------- */
+
+        @media (max-width: 600px) {
+            main {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            form {
+                gap: 0.8rem;
+            }
+        }
+        /* ----------------------------- */
+        /* Dark Mode Styles */
+        /* ---------------------------------- */
+        /* 🌙 Dark Mode Styles */
+        /* ---------------------------------- */
+
+        .dark-mode {
+            background: linear-gradient(135deg, #121212, #1e1e1e);
+            color: #f0f0f0;
+        }
+
+        .dark-mode header {
+            background: linear-gradient(120deg, #004d40, #00796b);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+        }
+
+        .dark-mode main {
+            background: rgba(40, 40, 40, 0.95);
+            color: #ddd;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.8);
+        }
+
+        .dark-mode label {
+            color: #b2dfdb;
+        }
+
+        .dark-mode input[type="number"] {
+            background: #333;
+            color: #f0f0f0;
+            border-color: #555;
+        }
+
+        .dark-mode input[type="number"]:focus {
+            border-color: #26a69a;
+            box-shadow: 0 0 8px rgba(38, 166, 154, 0.6);
+        }
+
+        .dark-mode button {
+            background: #26a69a;
+        }
+
+        .dark-mode button:hover {
+            background: #00796b;
+        }
+
+        .dark-mode h3 {
+            background: #1b5e20;
+            color: #c8e6c9;
+        }
+
+        .dark-mode footer {
+            background: #00251a;
+        }
+
+        /* Toggle Button Styling */
+        #theme-toggle {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #004d40;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #theme-toggle:hover {
+            background: #00796b;
+            transform: scale(1.05);
+        }
+
     </style>
 </head>
 <body>
     <header>
-        <h1>California Housing Pricing</h1>
+        <h1>California Housing Price Predictor</h1>
         <p>Explore housing price trends and insights across California.</p>
+
+        <!-- 🌙 Dark Mode Toggle -->
+        <button id="theme-toggle">🌙 Dark Mode</button>
     </header>
+
     <main>
-        <h2>Welcome!</h2>
+        <h2> Enter neighborhood details to estimate home value </h2>
         <p>
-            This project provides interactive data visualizations and analysis of housing prices in California. 
-            Discover patterns, compare regions, and gain insights to help you make informed decisions.
+            This tool uses machine learning to predict median home prices
+            based on income, age, rooms, population, and location data.
         </p>
-        <a href="/explore" class="cta">Explore Data</a>
+        
+        <form action="{{url_for('predict')}}" method="post" style="margin-top:1rem;">
+            <label for="MedInc">Median Income:</label>
+            <input type="number" step="any" name="MedInc" id="MedInc" required><br>
+
+            <label for="HouseAge">House Age:</label>
+            <input type="number" step="any" name="HouseAge" id="HouseAge" required><br>
+
+            <label for="AveRooms">Average Rooms:</label>
+            <input type="number" step="any" name="AveRooms" id="AveRooms" required><br>
+
+            <label for="AveBedrms">Average Bedrooms:</label>
+            <input type="number" step="any" name="AveBedrms" id="AveBedrms" required><br>
+
+            <label for="Population">Population:</label>
+            <input type="number" step="any" name="Population" id="Population" required><br>
+
+            <label for="AveOccup">Average Occupancy:</label>
+            <input type="number" step="any" name="AveOccup" id="AveOccup" required><br>
+
+            <label for="Latitude">Latitude:</label>
+            <input type="number" step="any" name="Latitude" id="Latitude" required><br>
+
+            <label for="Longitude">Longitude:</label>
+            <input type="number" step="any" name="Longitude" id="Longitude" required><br>
+
+            <button type="submit" style="margin-top:0.5rem;">Predict Price</button>
+        </form>
+
+        <div>
+            <h3>{{ prediction_text }}</h3>
+        </div>
+        
+        
     </main>
+
     <footer>
-        &copy; 2024 California Housing Pricing Project
+        &copy; 2025 California Housing Pricing Project by Hezekiah Odetunde
     </footer>
+
+    <!-- 💡 Theme Toggle Script -->
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        toggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            toggleBtn.textContent = 
+                document.body.classList.contains('dark-mode') 
+                ? '☀️ Light Mode' 
+                : '🌙 Dark Mode';
+        });
+    </script>
 </body>
 </html>

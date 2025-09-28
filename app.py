@@ -86,6 +86,22 @@ def predict_api():
     return jsonify(float(output[0]))
 
 
+@app.route('/predict', methods=['POST'])
+def predict():
+    """ Route to handle submission from the HTML form"""
+    # Extract form data from the POST request
+    int_features = [float(x) for x in request.form.values()]
+    final_feature = np.array(int_features).reshape(1, -1)
+    input_data = scaler.transform(final_feature)
+    print(input_data)
+    input_pred = regmodel.predict(input_data)[0]
+    print(input_pred)
+    output = np.round(input_pred, 2)
+    #print(output)
+    return render_template('home.html', prediction_text = "The house predicted value is {}".format(output))
+
+
+
 # ===========================================================
 # MAIN ENTRY POINT
 # -----------------------------------------------------------
